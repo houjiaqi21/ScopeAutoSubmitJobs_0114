@@ -1,5 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.IO;
+using System.Text;
 
 namespace SubmitJobAuto
 {
@@ -14,7 +17,7 @@ namespace SubmitJobAuto
         {
             string jsonfile = @"..\..\..\SubmitJobAuto\Setting.json";//JSON文件路径
 
-            using (System.IO.StreamReader file = System.IO.File.OpenText(jsonfile))
+            using (StreamReader file = File.OpenText(jsonfile))
             {
                 using (JsonTextReader reader = new JsonTextReader(file))
                 {
@@ -29,7 +32,7 @@ namespace SubmitJobAuto
         {
             string jsonfile = @"..\..\..\SubmitJobAuto\Setting.json";//JSON文件路径
 
-            using (System.IO.StreamReader file = System.IO.File.OpenText(jsonfile))
+            using (StreamReader file = File.OpenText(jsonfile))
             {
                 using (JsonTextReader reader = new JsonTextReader(file))
                 {
@@ -38,6 +41,16 @@ namespace SubmitJobAuto
                     return value;
                 }
             }
+        }
+
+        public static void Updatejson(string text, string key1, string key2)
+        {
+            string jsonfile = @"..\..\..\SubmitJobAuto\SubmitReport.json";//JSON文件路径
+            string jsonString = File.ReadAllText(jsonfile, Encoding.Default);//读取文件
+            JObject jobject = JObject.Parse(jsonString);//解析成json
+            jobject[key1][key2] = text;//替换需要的文件
+            string convertString = Convert.ToString(jobject);//将json装换为string
+            File.WriteAllText(jsonfile, convertString);//将内容写进jon文件中
         }
     }
 }

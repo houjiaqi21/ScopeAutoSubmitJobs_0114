@@ -3,5 +3,10 @@
   "scope_project_path": {
     "ScopAll_In_One": "C:\\test\\new\\ScopAll_In_One\\ScopAll_In_One.sln",
     "B2": "3"
+  },
+  "submit_job_information": {
+    "Script Name": "C:\\test\\new\\ScopAll_In_One\\ScopAll_In_One.sln",
+    "Friendly Name": "3",
+    "Nebula Arguents": "-UserDebugStream users/v-hozhao/Debug19_122711.xml -VertexDebugRetainTime 72"
   }
 }

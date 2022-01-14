@@ -11,6 +11,7 @@ using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
 using Microsoft.VisualStudio.TestTools.UITesting.WpfControls;
 using System.Configuration;
+using SubmitJobAuto.Submit;
 
 namespace SubmitJobAuto
 {
@@ -58,7 +59,7 @@ namespace SubmitJobAuto
             this.MenuFun.ClickSubmit();
 
             WpfPane submitJob = MyFun._MyWpfPane(VsProjectN, "Submit Job");
-
+            Json.Updatejson("19","submit_job_information", "Script Name");
             WpfEdit editbox1 = new WpfEdit(submitJob);
             UITestControlCollection editbox = editbox1.FindMatchingControls();
             foreach (UITestControl x in editbox)
@@ -71,6 +72,8 @@ namespace SubmitJobAuto
             }
             WpfButton jobProperties = MyFun._MyWpfButton(submitJob, "Job Properties");
             Mouse.Click(jobProperties);
+
+            SubmitJobPage.SubmitP();
 
 
         }
@@ -188,6 +191,21 @@ namespace SubmitJobAuto
         }
 
         private CustomFun customFun;
+
+        public SubmitJobPage SubmitJobPage
+        {
+            get
+            {
+                if (this.submitJobPage == null)
+                {
+                    this.submitJobPage = new SubmitJobPage();
+                }
+
+                return this.submitJobPage;
+            }
+        }
+
+        private SubmitJobPage submitJobPage;
         #endregion
     }
 

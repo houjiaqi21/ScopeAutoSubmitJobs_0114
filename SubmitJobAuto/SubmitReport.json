@@ -1,0 +1,11 @@
+{
+  "vs2019_location": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\IDE\\devenv.exe",
+  "scope_project_path": {
+    "ScopAll_In_One": "C:\\test\\new\\ScopAll_In_One\\ScopAll_In_One.sln",
+    "B2": "3"
+  },
+  "submit_job_information": {
+    "Script Name": "19",
+    "Friendly Name": "3"
+  }
+}

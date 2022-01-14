@@ -70,6 +70,7 @@
       <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
     <Compile Include="StartPage.cs" />
+    <Compile Include="SubmitJobPage.cs" />
     <Compile Include="TitleBar.cs" />
     <Compile Include="UIMap.cs" />
   </ItemGroup>
@@ -81,6 +82,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
+    <None Include="SubmitReport.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="testlogs\" />

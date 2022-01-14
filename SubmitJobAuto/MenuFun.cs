@@ -25,7 +25,7 @@ namespace SubmitJobAuto
     using MouseButtons = System.Windows.Forms.MouseButtons;
 
 
-    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+
     public partial class MenuFun
     {
 

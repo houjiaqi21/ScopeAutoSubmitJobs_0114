@@ -8,3 +8,13 @@ D:\submit\SubmitJobAuto\SubmitJobAuto\bin\Debug\SubmitJobAuto.dll.config
 D:\submit\SubmitJobAuto\SubmitJobAuto\bin\Debug\Newtonsoft.Json.dll
 D:\submit\SubmitJobAuto\SubmitJobAuto\bin\Debug\Newtonsoft.Json.xml
 D:\submit\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.csproj.CopyComplete
+D:\SubmitJobAuto\SubmitJobAuto\bin\Debug\SubmitJobAuto.dll.config
+D:\SubmitJobAuto\SubmitJobAuto\bin\Debug\SubmitJobAuto.dll
+D:\SubmitJobAuto\SubmitJobAuto\bin\Debug\SubmitJobAuto.pdb
+D:\SubmitJobAuto\SubmitJobAuto\bin\Debug\Newtonsoft.Json.dll
+D:\SubmitJobAuto\SubmitJobAuto\bin\Debug\Newtonsoft.Json.xml
+D:\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.csprojAssemblyReference.cache
+D:\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.csproj.CoreCompileInputs.cache
+D:\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.csproj.CopyComplete
+D:\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.dll
+D:\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.pdb
