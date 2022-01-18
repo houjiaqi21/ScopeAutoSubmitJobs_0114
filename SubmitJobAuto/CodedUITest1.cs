@@ -52,29 +52,35 @@ namespace SubmitJobAuto
 
             //CustomFun.LogText("open successed" + CustomFun.MyDateTime);
 
-            WpfPane solution = MyFun._MyWpfPane(VsProjectN, "Solution Explorer");
-            WinTreeItem projectn = MyFun._MyWinTreeItem(solution, "Scope19.script");
-            Mouse.Click(projectn);
+            //WpfPane solution = MyFun._MyWpfPane(VsProjectN, "Solution Explorer");
+            //WinTreeItem projectn = MyFun._MyWinTreeItem(solution, "Scope19.script");
+            //Mouse.Click(projectn);
 
-            this.MenuFun.ClickSubmit();
+            //this.MenuFun.ClickSubmit();
 
-            WpfPane submitJob = MyFun._MyWpfPane(VsProjectN, "Submit Job");
-            Json.Updatejson("19","submit_job_information", "Script Name");
-            WpfEdit editbox1 = new WpfEdit(submitJob);
-            UITestControlCollection editbox = editbox1.FindMatchingControls();
-            foreach (UITestControl x in editbox)
-            {
+            //WpfPane submitJob = MyFun._MyWpfPane(VsProjectN, "Submit Job");
+            //Json.Updatejson("19","submit_job_information", "Script Name");
+            //WpfEdit editbox1 = new WpfEdit(submitJob);
+            //UITestControlCollection editbox = editbox1.FindMatchingControls();
+            //foreach (UITestControl x in editbox)
+            //{
 
-                Mouse.Click(x);
-                Keyboard.SendKeys("A", ModifierKeys.Control);
-                Keyboard.SendKeys("ScopAll_In_One_Scope_houjiaqi" + timenow);
-                break;
-            }
-            WpfButton jobProperties = MyFun._MyWpfButton(submitJob, "Job Properties");
-            Mouse.Click(jobProperties);
+            //    Mouse.Click(x);
+            //    Keyboard.SendKeys("A", ModifierKeys.Control);
+            //    Keyboard.SendKeys("ScopAll_In_One_Scope_houjiaqi" + timenow);
+            //    Json.Updatejson("19", "submit_job_information", "Job Name");
+            //    break;
+            //}
+            //WpfButton jobProperties = MyFun._MyWpfButton(submitJob, "Job Properties");
+            //Mouse.Click(jobProperties);
 
-            SubmitJobPage.SubmitP();
+            //SubmitJobPage.SubmitP();
 
+            //SubmitJobPage.ClickSubmit();
+
+            WinButton copy = MyFun._MyWinButton(VsProjectN, "Copy URL to clipboard");
+            Mouse.Hover(copy);
+            Mouse.Click();
 
         }
 

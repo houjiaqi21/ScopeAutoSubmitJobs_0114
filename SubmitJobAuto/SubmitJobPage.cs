@@ -24,7 +24,7 @@ namespace SubmitJobAuto.Submit
             WpfComboBox uIDebugModeComboBoxComboBox = this.UISubmitJobWindow.UIUserControl_1Custom.UIJobPropertiesExpander.UIDebugModeComboBoxComboBox;
             #endregion
 
-            // Type 'ssssssss' in 'textBoxExtraCmdLineArguments' text box
+            // Type '' in 'textBoxExtraCmdLineArguments' text box
             uITextBoxExtraCmdLineAEdit.Text = this.RecordedMethod1Params.UITextBoxExtraCmdLineAEditText;
 
             // Select 'debugModeCheckBox' check box
@@ -32,6 +32,20 @@ namespace SubmitJobAuto.Submit
 
             // Select '72' in 'debugModeComboBox' combo box
             uIDebugModeComboBoxComboBox.SelectedItem = this.RecordedMethod1Params.UIDebugModeComboBoxComboBoxSelectedItem;
+        }
+
+        public void ClickSubmit()
+        {
+            #region Variable Declarations
+            WpfButton uIButtonSubmitButton = this.UISubmitJobWindow.UIUserControl_1Custom.UIButtonSubmitButton;
+            WpfButton uIYesButton = this.UISubmitJobWindow.UIYesButton;
+            #endregion
+
+            // Click 'buttonSubmit' button
+            Mouse.Click(uIButtonSubmitButton, new Point(44, 8));
+
+            // Click 'Yes' button
+            Mouse.Click(uIYesButton, new Point(49, 4));
         }
 
         #region Properties
@@ -71,10 +85,7 @@ namespace SubmitJobAuto.Submit
     {
 
         #region Fields
-        /// <summary>
-        /// Type 'ssssssss' in 'textBoxExtraCmdLineArguments' text box
-        /// </summary>
-        public string UITextBoxExtraCmdLineAEditText = "ssssssss";
+        public string UITextBoxExtraCmdLineAEditText = Json.Readjson("submit_job_information", "Nebula Arguents");
 
         /// <summary>
         /// Select 'debugModeCheckBox' check box
@@ -88,7 +99,6 @@ namespace SubmitJobAuto.Submit
         #endregion
     }
 
-    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
     public class UISubmitJobWindow : WpfWindow
     {
 
@@ -113,10 +123,27 @@ namespace SubmitJobAuto.Submit
                 return this.mUIUserControl_1Custom;
             }
         }
+
+        public WpfButton UIYesButton
+        {
+            get
+            {
+                if ((this.mUIYesButton == null))
+                {
+                    this.mUIYesButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIYesButton.SearchProperties[WpfButton.PropertyNames.Name] = "Yes";
+                    this.mUIYesButton.WindowTitles.Add("Submit Job");
+                    #endregion
+                }
+                return this.mUIYesButton;
+            }
+        }
         #endregion
 
         #region Fields
         private UIUserControl_1Custom mUIUserControl_1Custom;
+        private WpfButton mUIYesButton;
         #endregion
     }
 
@@ -145,10 +172,27 @@ namespace SubmitJobAuto.Submit
                 return this.mUIJobPropertiesExpander;
             }
         }
+
+        public WpfButton UIButtonSubmitButton
+        {
+            get
+            {
+                if ((this.mUIButtonSubmitButton == null))
+                {
+                    this.mUIButtonSubmitButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIButtonSubmitButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "buttonSubmit";
+                    this.mUIButtonSubmitButton.WindowTitles.Add("ScopAll_In_One");
+                    #endregion
+                }
+                return this.mUIButtonSubmitButton;
+            }
+        }
         #endregion
 
         #region Fields
         private UIJobPropertiesExpander mUIJobPropertiesExpander;
+        private WpfButton mUIButtonSubmitButton;
         #endregion
     }
 
@@ -210,6 +254,22 @@ namespace SubmitJobAuto.Submit
                     #endregion
                 }
                 return this.mUIDebugModeComboBoxComboBox;
+            }
+        }
+
+        public WpfEdit UITextSubmitButton
+        {
+            get
+            {
+                if ((this.mUITextBoxExtraCmdLineAEdit == null))
+                {
+                    this.mUITextBoxExtraCmdLineAEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUITextBoxExtraCmdLineAEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "textBoxExtraCmdLineArguments";
+                    this.mUITextBoxExtraCmdLineAEdit.WindowTitles.Add("ScopAll_In_One");
+                    #endregion
+                }
+                return this.mUITextBoxExtraCmdLineAEdit;
             }
         }
         #endregion

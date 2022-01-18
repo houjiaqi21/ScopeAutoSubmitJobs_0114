@@ -95,10 +95,6 @@ namespace SubmitJobAuto
             WinButton mybutton = new WinButton(ParentWindow);
             mybutton.SearchProperties[WinButton.PropertyNames.Name] = PropertyName;
 
-            if (mybutton.Exists == true)
-            {
-                Mouse.Click(mybutton);
-            }
             return mybutton;
         }
 
