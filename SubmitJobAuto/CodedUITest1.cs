@@ -12,6 +12,8 @@ using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
 using Microsoft.VisualStudio.TestTools.UITesting.WpfControls;
 using System.Configuration;
 using SubmitJobAuto.Submit;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace SubmitJobAuto
 {
@@ -59,7 +61,7 @@ namespace SubmitJobAuto
             //this.MenuFun.ClickSubmit();
 
             //WpfPane submitJob = MyFun._MyWpfPane(VsProjectN, "Submit Job");
-            //Json.Updatejson("19","submit_job_information", "Script Name");
+            //Json.Updatejson("19", "submit_job_information", "Script Name");
             //WpfEdit editbox1 = new WpfEdit(submitJob);
             //UITestControlCollection editbox = editbox1.FindMatchingControls();
             //foreach (UITestControl x in editbox)
@@ -78,10 +80,101 @@ namespace SubmitJobAuto
 
             //SubmitJobPage.ClickSubmit();
 
-            WinButton copy = MyFun._MyWinButton(VsProjectN, "Copy URL to clipboard");
-            Mouse.Hover(copy);
-            Mouse.Click();
 
+            Task<string> a = JobResult();
+            string c = a.ToString();
+            MessageBox.Show(c);
+
+
+            //WinButton copy = MyFun._MyWinButton(VsProjectN, "Copy URL to clipboard");
+            //Mouse.Hover(copy);
+            //Mouse.Click();
+
+
+            //WinPane jobView = MyFun._MyWinPane(VsProjectN, "Job view: ScopAll_In_One_Scope_houjiaqi1642391274");
+            ////WinText finalizing = MyFun._MyWinText(VsProjectN, "Finalizing");
+            //WinEdit jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
+
+            //while (!jobView.Exists)
+            //{
+            //    jobView = MyFun._MyWinPane(VsProjectN, "Job view: ScopAll_In_One_Scope_houjiaqi1642391274");
+            //}
+            //if (jobView.Exists)
+            //{
+            //    //log
+            //    //shot
+            //    while (!jobResult.Exists)
+            //    {
+            //        jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
+            //    }
+            //    if (jobResult.Exists)
+            //    {
+            //        //log
+            //        //shot
+            //        while(!(jobResult.Text == "Succeeded"))
+            //        {
+            //            //log
+            //            //shot
+            //        }
+            //        if(jobResult.Text == "Succeeded")
+            //        {
+            //            //log
+            //            //shot
+            //        }
+            //    }
+            //}
+
+
+        }
+
+
+        private async Task<string> JobResult()
+        {
+            var jobresult = WaitResult();
+            string resultLog = "" + await jobresult;
+            return resultLog;
+        }
+
+        private Task<string> WaitResult()
+        {
+            var task = Task.Run(() => {
+
+                WinPane jobView = MyFun._MyWinPane(VsProjectN, "Job view: ScopAll_In_One_Scope_houjiaqi1642391274");
+                //WinText finalizing = MyFun._MyWinText(VsProjectN, "Finalizing");
+                WinEdit jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
+
+                while (!jobView.Exists)
+                {
+                    jobView = MyFun._MyWinPane(VsProjectN, "Job view: ScopAll_In_One_Scope_houjiaqi1642391274");
+                }
+                if (jobView.Exists)
+                {
+                    //log
+                    //shot
+                    while (!jobResult.Exists)
+                    {
+                        jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
+                    }
+                    if (jobResult.Exists)
+                    {
+                        //log
+                        //shot
+                        while (!(jobResult.Text == "Succeeded"))
+                        {
+                            //log
+                            //shot
+                        }
+                        if (jobResult.Text == "Succeeded")
+                        {
+                            //log
+                            //shot
+                        }
+                    }
+                }
+                return "Succeeded";
+            });
+
+            return task;
         }
 
         #region Additional test attributes

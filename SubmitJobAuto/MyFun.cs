@@ -121,6 +121,14 @@ namespace SubmitJobAuto
             Keyboard.SendKeys(mywinedit, SendingValue);
             return mywinedit;
         }
+
+        public static WinEdit _WinEdit(UITestControl ParentWindow, string PropertyName)
+        {
+            WinEdit mywinedit = new WinEdit(ParentWindow);
+            mywinedit.SearchProperties[WinEdit.PropertyNames.Name] = PropertyName;
+            return mywinedit;
+        }
+
         public static UITestControl _WpfEdit(UITestControl ParentWindow, string SendingValue, string PropertyName)
         {
             WpfEdit mywpfedit = new WpfEdit(ParentWindow);
@@ -211,6 +219,13 @@ namespace SubmitJobAuto
         {
             WinText selectCluster = new WinText(ParentControl);
             selectCluster.SearchProperties[WinText.PropertyNames.Name] = PropertyName;
+            return selectCluster;
+        }
+
+        public static WpfText _MyWpfText(UITestControl ParentControl, string PropertyName)
+        {
+            WpfText selectCluster = new WpfText(ParentControl);
+            selectCluster.SearchProperties[WpfText.PropertyNames.Name] = PropertyName;
             return selectCluster;
         }
 
