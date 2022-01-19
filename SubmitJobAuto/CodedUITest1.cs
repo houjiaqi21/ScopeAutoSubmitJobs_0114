@@ -163,8 +163,15 @@ namespace SubmitJobAuto
         [TestMethod]
         public void CodedUITestMethod2()
         {
+            MailFun mailFun1 = new MailFun();
+            mailFun1.MailTo = "744863071@qq.com";
+            mailFun1.sendemail();
 
 
+            mailFun1.MailSubject = "test";
+            mailFun1.MailHTMLBody = "test";
+            //MessageBox.Show(mailFun1.MailTo);
+            mailFun1.Send();
         }
 
 
@@ -297,20 +304,20 @@ namespace SubmitJobAuto
 
         private SubmitJobPage submitJobPage;
 
-        //public MailFun MailFun
-        //{
-        //    get
-        //    {
-        //        if (this.mailFun == null)
-        //        {
-        //            this.mailFun = new MailFun();
-        //        }
+        public MailFun MailFun
+        {
+            get
+            {
+                if (this.mailFun == null)
+                {
+                    this.mailFun = new MailFun();
+                }
 
-        //        return this.mailFun;
-        //    }
-        //}
+                return this.mailFun;
+            }
+        }
 
-        //private MailFun mailFun;
+        private MailFun mailFun;
         #endregion
     }
 

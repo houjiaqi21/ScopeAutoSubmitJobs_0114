@@ -18,3 +18,13 @@ D:\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.csproj.CoreCompileInputs.
 D:\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.csproj.CopyComplete
 D:\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.dll
 D:\SubmitJobAuto\SubmitJobAuto\obj\Debug\SubmitJobAuto.pdb
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\obj\Debug\SubmitJobAuto.csprojAssemblyReference.cache
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\obj\Debug\SubmitJobAuto.csproj.CoreCompileInputs.cache
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\obj\Debug\SubmitJobAuto.dll
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\obj\Debug\SubmitJobAuto.pdb
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\bin\Debug\SubmitJobAuto.dll.config
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\bin\Debug\SubmitJobAuto.dll
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\bin\Debug\SubmitJobAuto.pdb
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\bin\Debug\Newtonsoft.Json.dll
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\bin\Debug\Newtonsoft.Json.xml
+E:\dev\ScopeAutoSubmitJobs_0114\SubmitJobAuto\obj\Debug\SubmitJobAuto.csproj.CopyComplete
