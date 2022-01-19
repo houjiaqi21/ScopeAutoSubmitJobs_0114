@@ -164,7 +164,7 @@ namespace SubmitJobAuto
         public void CodedUITestMethod2()
         {
 
-            MailFun.Email();
+
         }
 
 
@@ -297,20 +297,20 @@ namespace SubmitJobAuto
 
         private SubmitJobPage submitJobPage;
 
-        public MailFun MailFun
-        {
-            get
-            {
-                if (this.mailFun == null)
-                {
-                    this.mailFun = new MailFun();
-                }
+        //public MailFun MailFun
+        //{
+        //    get
+        //    {
+        //        if (this.mailFun == null)
+        //        {
+        //            this.mailFun = new MailFun();
+        //        }
 
-                return this.mailFun;
-            }
-        }
+        //        return this.mailFun;
+        //    }
+        //}
 
-        private MailFun mailFun;
+        //private MailFun mailFun;
         #endregion
     }
 
