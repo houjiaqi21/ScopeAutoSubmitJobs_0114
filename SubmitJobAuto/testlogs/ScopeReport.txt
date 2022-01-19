@@ -13,3 +13,10 @@ open successed_20220117_113723
 open successed_20220117_114457
 open successed_20220117_114754
 open successed_20220117_174427
+open successed_20220119_103837
+open successed_20220119_104157
+open successed_20220119_104518
+open successed_20220119_104941
+open successed_20220119_105003
+open successed_20220119_105919
+open successed_20220119_114316

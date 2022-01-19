@@ -45,7 +45,7 @@ namespace SubmitJobAuto.Submit
             Mouse.Click(uIButtonSubmitButton, new Point(44, 8));
 
             // Click 'Yes' button
-            Mouse.Click(uIYesButton, new Point(49, 4));
+            //Mouse.Click(uIYesButton, new Point(49, 4));
         }
 
         #region Properties

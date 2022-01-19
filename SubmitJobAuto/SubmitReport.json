@@ -1,12 +1,10 @@
 {
-  "vs2019_location": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\IDE\\devenv.exe",
-  "scope_project_path": {
-    "ScopAll_In_One": "C:\\test\\new\\ScopAll_In_One\\ScopAll_In_One.sln",
-    "B2": "3"
-  },
   "submit_job_information": {
-    "Script Name": "19",
-    "Friendly Name": "3",
-    "Job Name": "19"
+    "Script Name": "Scope19.script",
+    "Job Name": "ScopAll_In_One_Scope_houjiaqi1642563796",
+    "VS Verson": "2019",
+    "Project Name": "ScopAll_In_One",
+    "Submit link": "https://aad.cosmos08.osdinfra.net/cosmos/sandbox/_Jobs/5ebb7063-673b-4330-b02e-70129bbca4b4",
+    "Submit Statue": "Succeeded"
   }
 }

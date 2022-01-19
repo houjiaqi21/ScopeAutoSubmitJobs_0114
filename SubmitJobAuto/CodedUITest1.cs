@@ -29,6 +29,7 @@ namespace SubmitJobAuto
 
         static DateTime time = DateTime.Now;
         static string timenow = DateTimeTool.DateTimeToStamp(time);
+        static string jobName;
 
         static WinWindow VisualStudioStart = MyFun._window("Microsoft Visual Studio");
         static WinWindow VsProjectN = MyFun._window(projectName + " - Microsoft Visual Studio");
@@ -47,87 +48,98 @@ namespace SubmitJobAuto
             string scopeProjectPath = Json.Readjson("scope_project_path", "ScopAll_In_One");
             #endregion
 
-            //this.MyFun.Openscopeproject(scopeProjectPath);
+            this.MyFun.Openscopeproject(scopeProjectPath);
 
-            //CustomFun.Maximized();
-            //TitleBar.ResetWindowLayout();
+            Json.Updatejson("2019", "submit_job_information", "VS Verson");
+            Json.Updatejson("ScopAll_In_One", "submit_job_information", "Project Name");
 
-            //CustomFun.LogText("open successed" + CustomFun.MyDateTime);
+            CustomFun.Maximized();
+            TitleBar.ResetWindowLayout();
 
-            //WpfPane solution = MyFun._MyWpfPane(VsProjectN, "Solution Explorer");
-            //WinTreeItem projectn = MyFun._MyWinTreeItem(solution, "Scope19.script");
-            //Mouse.Click(projectn);
+            CustomFun.LogText("open successed" + CustomFun.MyDateTime);
 
-            //this.MenuFun.ClickSubmit();
+            WpfPane solution = MyFun._MyWpfPane(VsProjectN, "Solution Explorer");
+            WinTreeItem projectn = MyFun._MyWinTreeItem(solution, "Scope19.script");
+            Mouse.Click(projectn);
 
-            //WpfPane submitJob = MyFun._MyWpfPane(VsProjectN, "Submit Job");
-            //Json.Updatejson("19", "submit_job_information", "Script Name");
-            //WpfEdit editbox1 = new WpfEdit(submitJob);
-            //UITestControlCollection editbox = editbox1.FindMatchingControls();
-            //foreach (UITestControl x in editbox)
-            //{
+            this.MenuFun.ClickSubmit();
 
-            //    Mouse.Click(x);
-            //    Keyboard.SendKeys("A", ModifierKeys.Control);
-            //    Keyboard.SendKeys("ScopAll_In_One_Scope_houjiaqi" + timenow);
-            //    Json.Updatejson("19", "submit_job_information", "Job Name");
-            //    break;
-            //}
-            //WpfButton jobProperties = MyFun._MyWpfButton(submitJob, "Job Properties");
-            //Mouse.Click(jobProperties);
-
-            //SubmitJobPage.SubmitP();
-
-            //SubmitJobPage.ClickSubmit();
+            WpfPane submitJob = MyFun._MyWpfPane(VsProjectN, "Submit Job");
+            Json.Updatejson("Scope19.script", "submit_job_information", "Script Name");
+            WpfEdit editbox1 = new WpfEdit(submitJob);
 
 
-            Task<string> a = JobResult();
-            string c = a.ToString();
-            MessageBox.Show(c);
+            UITestControlCollection editbox = editbox1.FindMatchingControls();
+            foreach (UITestControl x in editbox)
+            {
+
+                Mouse.Click(x);
+                Keyboard.SendKeys("A", ModifierKeys.Control);
+                jobName = "ScopAll_In_One_Scope_houjiaqi" + timenow;
+                Keyboard.SendKeys(jobName);
+                Json.Updatejson(jobName, "submit_job_information", "Job Name");
+                break;
+            }
+            WpfButton jobProperties = MyFun._MyWpfButton(submitJob, "Job Properties");
+            Mouse.Click(jobProperties);
+
+            SubmitJobPage.SubmitP();
+
+            SubmitJobPage.ClickSubmit();
+
+            //Playback.Wait(2000);
+
+            WpfButton submitYes = MyFun._MyWpfButton(VsProjectN, "Yes");
+            //submitYes.DrawHighlight();
+            Mouse.Click(submitYes);
 
 
-            //WinButton copy = MyFun._MyWinButton(VsProjectN, "Copy URL to clipboard");
-            //Mouse.Hover(copy);
-            //Mouse.Click();
+            WinPane jobView = MyFun._MyWinPane(VsProjectN, "Job view: " + jobName);
+            //WinText finalizing = MyFun._MyWinText(VsProjectN, "Finalizing");
+            WinEdit jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
 
+            while (!jobView.Exists)
+            {
+                jobView = MyFun._MyWinPane(VsProjectN, "Job view: " + jobName);
+            }
+            if (jobView.Exists)
+            {
+                //log
+                //shot
+                WinButton copy = MyFun._MyWinButton(VsProjectN, "Copy URL to clipboard");
+                Mouse.Hover(copy);
+                Mouse.Click();
+                string message = Convert.ToString(Clipboard.GetDataObject().GetData(DataFormats.Text));
 
-            //WinPane jobView = MyFun._MyWinPane(VsProjectN, "Job view: ScopAll_In_One_Scope_houjiaqi1642391274");
-            ////WinText finalizing = MyFun._MyWinText(VsProjectN, "Finalizing");
-            //WinEdit jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
+                Json.Updatejson(message, "submit_job_information", "Submit link");
 
-            //while (!jobView.Exists)
-            //{
-            //    jobView = MyFun._MyWinPane(VsProjectN, "Job view: ScopAll_In_One_Scope_houjiaqi1642391274");
-            //}
-            //if (jobView.Exists)
-            //{
-            //    //log
-            //    //shot
-            //    while (!jobResult.Exists)
-            //    {
-            //        jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
-            //    }
-            //    if (jobResult.Exists)
-            //    {
-            //        //log
-            //        //shot
-            //        while(!(jobResult.Text == "Succeeded"))
-            //        {
-            //            //log
-            //            //shot
-            //        }
-            //        if(jobResult.Text == "Succeeded")
-            //        {
-            //            //log
-            //            //shot
-            //        }
-            //    }
-            //}
+                while (!jobResult.Exists)
+                {
+                    jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
+                }
+                if (jobResult.Exists)
+                {
+                    //log
+                    CustomFun.LogText("" + timenow);
+                    //shot
+                    while (!(jobResult.Text == "Succeeded"))
+                    {
+                        //log
+                        //shot
+                    }
+                    if (jobResult.Text == "Succeeded")
+                    {
+                        //log
+                        //shot
+                        Json.Updatejson("Succeeded", "submit_job_information", "Submit Statue");
+                    }
+                }
+            }
 
 
         }
 
-
+        //https://www.cnblogs.com/zhaoshujie/p/11192036.html
         private async Task<string> JobResult()
         {
             var jobresult = WaitResult();
@@ -139,43 +151,22 @@ namespace SubmitJobAuto
         {
             var task = Task.Run(() => {
 
-                WinPane jobView = MyFun._MyWinPane(VsProjectN, "Job view: ScopAll_In_One_Scope_houjiaqi1642391274");
-                //WinText finalizing = MyFun._MyWinText(VsProjectN, "Finalizing");
-                WinEdit jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
 
-                while (!jobView.Exists)
-                {
-                    jobView = MyFun._MyWinPane(VsProjectN, "Job view: ScopAll_In_One_Scope_houjiaqi1642391274");
-                }
-                if (jobView.Exists)
-                {
-                    //log
-                    //shot
-                    while (!jobResult.Exists)
-                    {
-                        jobResult = MyFun._WinEdit(VsProjectN, "Job Result");
-                    }
-                    if (jobResult.Exists)
-                    {
-                        //log
-                        //shot
-                        while (!(jobResult.Text == "Succeeded"))
-                        {
-                            //log
-                            //shot
-                        }
-                        if (jobResult.Text == "Succeeded")
-                        {
-                            //log
-                            //shot
-                        }
-                    }
-                }
+                
                 return "Succeeded";
             });
 
             return task;
         }
+
+
+        [TestMethod]
+        public void CodedUITestMethod2()
+        {
+
+            MailFun.Email();
+        }
+
 
         #region Additional test attributes
 
@@ -305,6 +296,21 @@ namespace SubmitJobAuto
         }
 
         private SubmitJobPage submitJobPage;
+
+        public MailFun MailFun
+        {
+            get
+            {
+                if (this.mailFun == null)
+                {
+                    this.mailFun = new MailFun();
+                }
+
+                return this.mailFun;
+            }
+        }
+
+        private MailFun mailFun;
         #endregion
     }
 
