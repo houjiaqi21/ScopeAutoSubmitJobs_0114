@@ -3,51 +3,50 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Office.Interop.Outlook;
+using Newtonsoft.Json;
+using Outlook = Microsoft.Office.Interop.Outlook;
+using Microsoft.Office.Interop.Outlook;
 
-namespace SubmitJobAuto
+namespace SendEmail
 {
     class Program
     {
-        //[Flags]
-        //public enum SecurityProtocolType
-        //{
-        //    //
-        //    // Summary:
-        //    //     Specifies the system default security protocol as defined by Schannel.
-        //    SystemDefault = 0,
-        //    //
-        //    // Summary:
-        //    //     Specifies the Secure Socket Layer (SSL) 3.0 security protocol.
-        //    Ssl3 = 48,
-        //    //
-        //    // Summary:
-        //    //     Specifies the Transport Layer Security (TLS) 1.0 security protocol.
-        //    Tls = 192,
-        //    //
-        //    // Summary:
-        //    //     Specifies the Transport Layer Security (TLS) 1.1 security protocol.
-        //    Tls11 = 768,
-        //    //
-        //    // Summary:
-        //    //     Specifies the Transport Layer Security (TLS) 1.2 security protocol.
-        //    Tls12 = 3072
-        //}
-
         static void Main(string[] args)
         {
             string url = "https://prod-16.eastus2.logic.azure.com:443/workflows/28eecf48b48d4616a1045475b0857361/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=AMU8o0R4rVQwmfyNyVZqKtNZEsuPWOI18J-DhN-5UX8";
             //string result = PostUrl(url, "Body:{'Body':'Test','Subject':'DRI report','To':'v-hozhao@microsoft.com','CC':'v-hozhao@microsoft.com'}"); // key=4da4193e-384b-44d8-8a7f-2dd8b076d784
             //string result = PostUrl(url, "{\"Body\":\"Test\",\"Subject\":\"DRI report\",\"To\":\"v-hozhao@microsoft.com\",\"CC\":\"v-hozhao@microsoft.com\"}"); // key=4da4193e-384b-44d8-8a7f-2dd8b076d784
-            string result = PostUrl(url, "{\n \"Body\": \"test maill \",\n \"Subject\": \"testmail\",\n \"To\": \"v-shuaitong@microsoft.com;v-hozhao@microsoft.com\",\n \"CC\": \"v-shuaitong@microsoft.com;v-hozhao@microsoft.com\"\n}");
-            Console.WriteLine(result);
-            Console.WriteLine("OVER");
-            //Console.ReadLine();
-        }
 
+            //string a = Json.Readjson("submit_job_information");
+            //Json.Updatejson("aaa", "submit_job_information", "Submit link");
+
+
+            string scriptName = Json.ReadRjson("submit_job_information", "Script Name");
+            string jobName = Json.ReadRjson("submit_job_information", "Job Name");
+            string vsVerson = Json.ReadRjson("submit_job_information", "VS Verson");
+            string projectName = Json.ReadRjson("submit_job_information", "Project Name");
+            string submitLink = Json.ReadRjson("submit_job_information", "Submit link");
+            string submitStatue = Json.ReadRjson("submit_job_information", "Submit Statue");
+
+            string MailHTMLBody = "<HTML><head><title></title></head> <body>Hello all，<br/> <br/>below is the information for submitting job：<br/> <br/>Script Name : " + scriptName 
+                + "<br/> <br/>Job Name : " + jobName + "<br/> <br/>VS Verson : " + vsVerson + "<br/> <br/>Project Name : " + projectName + "<br/> <br/>Submit link : " + submitLink
+                + "<br/> <br/>Submit Statue : " + submitStatue + "</body></HTML>";
+
+
+
+            string result = PostUrl(url, 
+                "{\n \"MailBody\": \""+ MailHTMLBody + "\",\n \"Subject\": \"Scope test\",\n \"To\": \"v-jiaqihou@microsoft.com\",\n \"CC\": \"v-jiaqihou@microsoft.com\",\n \"Attachments\": \"\",\n \"AttachmentName\": \"\"\n}");
+            //Console.WriteLine(body);
+            //Console.WriteLine("OVER");
+            //Console.ReadLine();
+
+        }
         private static string PostUrl(string url, string postData)
         {
             HttpWebRequest request = null;
@@ -97,6 +96,9 @@ namespace SubmitJobAuto
         {
             return true; //总是接受  
         }
+    }
 
+    internal class Mail
+    {
     }
 }

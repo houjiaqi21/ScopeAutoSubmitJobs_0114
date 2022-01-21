@@ -105,6 +105,7 @@ namespace SubmitJobAuto
             if (jobView.Exists)
             {
                 //log
+                CustomFun.LogText("Job View opened" + timenow);
                 //shot
                 WinButton copy = MyFun._MyWinButton(VsProjectN, "Copy URL to clipboard");
                 Mouse.Hover(copy);
@@ -119,67 +120,57 @@ namespace SubmitJobAuto
                 }
                 if (jobResult.Exists)
                 {
-                    //log
-                    CustomFun.LogText("" + timenow);
                     //shot
                     while (!(jobResult.Text == "Succeeded"))
                     {
-                        //log
-                        //shot
+
                     }
                     if (jobResult.Text == "Succeeded")
                     {
                         //log
+                        CustomFun.LogText("Submit job succeeded" + timenow);
                         //shot
                         Json.Updatejson("Succeeded", "submit_job_information", "Submit Statue");
                     }
                 }
             }
 
-
+            ApplicationUnderTest.Launch(@"D:\SubmitJobAuto\SendEmail\bin\Release\SendEmail.exe");
+            Playback.Wait(3000);
         }
 
-        //https://www.cnblogs.com/zhaoshujie/p/11192036.html
-        private async Task<string> JobResult()
-        {
-            var jobresult = WaitResult();
-            string resultLog = "" + await jobresult;
-            return resultLog;
-        }
 
-        private Task<string> WaitResult()
-        {
-            var task = Task.Run(() => {
-
-
-                
-                return "Succeeded";
-            });
-
-            return task;
-        }
 
 
         [TestMethod]
         public void CodedUITestMethod2()
         {
-            MailFun mailFun1 = new MailFun();
-            mailFun1.MailTo = "744863071@qq.com";
-            mailFun1.sendemail();
+            //MailFun mailFun1 = new MailFun();
+            //mailFun1.MailTo = "744863071@qq.com";
+            //mailFun1.MailSubject = "Scope Submit Report";
 
+            //string scriptName = Json.ReadRjson("submit_job_information", "Script Name");
+            //string jobName = Json.ReadRjson("submit_job_information", "Job Name");
+            //Json.ReadRjson("submit_job_information", "VS Verson");
+            //Json.ReadRjson("submit_job_information", "Project Name");
+            //Json.ReadRjson("submit_job_information", "Submit link");
+            //Json.ReadRjson("submit_job_information", "Submit Statue");
+            ////mailFun1.MailHTMLBody = "<HTML><BODY><table><tr><td>" + "Script Name" + "</td><td>" + scriptName + "</td></tr><tr><td>" + "Job Name" + "</td><td>" + jobName + "</td></tr></table></BODY></HTML>";
+            //mailFun1.MailHTMLBody = "<HTML><head><title></title></head> <body>Hello all，<br/> <br/>below is the information for submitting job：<br/> <br/>Script Name : " + scriptName +
+            //    "<br/> <br/>Job Name : " + jobName + "</body></HTML>";
 
-            mailFun1.MailSubject = "test";
-            mailFun1.MailHTMLBody = "test";
-            //MessageBox.Show(mailFun1.MailTo);
-            mailFun1.Send();
+            //mailFun1.Send();
+            //MailFun.SendAPI();
+           
         }
+       
 
 
         #region Additional test attributes
 
-        // You can use the following additional attributes as you write your tests:
+            // You can use the following additional attributes as you write your tests:
 
-        //Use TestInitialize to run code before running each test 
+            //Use TestInitialize to run code before running each test 
         [TestInitialize()]
         public void MyTestInitialize()
         {
@@ -320,5 +311,6 @@ namespace SubmitJobAuto
         private MailFun mailFun;
         #endregion
     }
+
 
 }

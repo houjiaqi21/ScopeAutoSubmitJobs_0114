@@ -28,6 +28,21 @@ namespace SubmitJobAuto
             }
         }
 
+        public static string ReadRjson(string key, string key2)
+        {
+            string jsonfile = @"..\..\..\SubmitJobAuto\SubmitReport.json";//JSON文件路径
+
+            using (StreamReader file = File.OpenText(jsonfile))
+            {
+                using (JsonTextReader reader = new JsonTextReader(file))
+                {
+                    JObject o = (JObject)JToken.ReadFrom(reader);
+                    var value = o[key][key2].ToString();
+                    return value;
+                }
+            }
+        }
+
         public static string Readjson(string key1, string key2)
         {
             string jsonfile = @"..\..\..\SubmitJobAuto\Setting.json";//JSON文件路径
@@ -51,6 +66,10 @@ namespace SubmitJobAuto
             jobject[key1][key2] = text;//替换需要的文件
             string convertString = Convert.ToString(jobject);//将json装换为string
             File.WriteAllText(jsonfile, convertString);//将内容写进jon文件中
+
+
+            //string body = JsonConvert.SerializeObject(mail, Formatting.Indented);
+
         }
     }
 }

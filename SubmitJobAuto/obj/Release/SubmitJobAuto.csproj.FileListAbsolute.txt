@@ -1,0 +1,15 @@
+D:\SubmitJobAuto\SubmitJobAuto\obj\Release\SubmitJobAuto.csprojAssemblyReference.cache
+D:\SubmitJobAuto\SubmitJobAuto\obj\Release\SubmitJobAuto.csproj.CoreCompileInputs.cache
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\SubmitJobAuto.dll.config
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\SubmitJobAuto.dll
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\SubmitJobAuto.pdb
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\Newtonsoft.Json.dll
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\System.Net.Http.dll
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\System.Security.Cryptography.Algorithms.dll
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\System.Security.Cryptography.Encoding.dll
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\System.Security.Cryptography.Primitives.dll
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\System.Security.Cryptography.X509Certificates.dll
+D:\SubmitJobAuto\SubmitJobAuto\bin\Release\Newtonsoft.Json.xml
+D:\SubmitJobAuto\SubmitJobAuto\obj\Release\SubmitJobAuto.csproj.CopyComplete
+D:\SubmitJobAuto\SubmitJobAuto\obj\Release\SubmitJobAuto.dll
+D:\SubmitJobAuto\SubmitJobAuto\obj\Release\SubmitJobAuto.pdb

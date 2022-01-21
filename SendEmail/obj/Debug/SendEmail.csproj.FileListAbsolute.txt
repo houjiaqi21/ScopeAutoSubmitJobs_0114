@@ -1,0 +1,14 @@
+D:\SubmitJobAuto\SendEmail\bin\Debug\SendEmail.exe.config
+D:\SubmitJobAuto\SendEmail\bin\Debug\SendEmail.exe
+D:\SubmitJobAuto\SendEmail\bin\Debug\SendEmail.pdb
+D:\SubmitJobAuto\SendEmail\obj\Debug\SendEmail.csprojAssemblyReference.cache
+D:\SubmitJobAuto\SendEmail\obj\Debug\SendEmail.csproj.CoreCompileInputs.cache
+D:\SubmitJobAuto\SendEmail\obj\Debug\SendEmail.exe
+D:\SubmitJobAuto\SendEmail\obj\Debug\SendEmail.pdb
+D:\SubmitJobAuto\SendEmail\bin\Debug\Newtonsoft.Json.dll
+D:\SubmitJobAuto\SendEmail\bin\Debug\SendGrid.dll
+D:\SubmitJobAuto\SendEmail\bin\Debug\StarkbankEcdsa.dll
+D:\SubmitJobAuto\SendEmail\bin\Debug\Newtonsoft.Json.xml
+D:\SubmitJobAuto\SendEmail\bin\Debug\SendGrid.pdb
+D:\SubmitJobAuto\SendEmail\bin\Debug\SendGrid.xml
+D:\SubmitJobAuto\SendEmail\obj\Debug\SendEmail.csproj.CopyComplete
